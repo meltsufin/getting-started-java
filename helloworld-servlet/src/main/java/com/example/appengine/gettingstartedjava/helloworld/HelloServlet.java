@@ -18,6 +18,7 @@ package com.example.appengine.gettingstartedjava.helloworld;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Logger;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,13 +27,22 @@ import javax.servlet.http.HttpServletResponse;
 
 // [START example]
 @SuppressWarnings("serial")
-@WebServlet(name = "helloworld", value = "/" )
+@WebServlet(name = "helloworld", value = "/hello" )
 public class HelloServlet extends HttpServlet {
+  private final static Logger logger = Logger.getLogger(HelloServlet.class.getName());
 
   @Override
   public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
     PrintWriter out = resp.getWriter();
     out.println("Hello, world - Flex Servlet");
+
+
+    logger.info("Test INFO level log");
+    logger.warning("Test WARN level log");
+    logger.severe("Test SEVERE level log");
+
+    throw new RuntimeException("Testing exception.");
+
   }
 }
 // [END example]

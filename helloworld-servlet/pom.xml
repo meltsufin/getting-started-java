@@ -48,6 +48,11 @@
       <version>3.1.0</version>
       <scope>provided</scope>           <!-- Provided by the Jetty Servlet Container -->
     </dependency>
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-logging</artifactId>
+      <version>1.4.0</version>
+    </dependency>
   </dependencies>
 
   <build>
